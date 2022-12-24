@@ -2,46 +2,46 @@ Dealer.create!([
   {
     name: "American Airlines",
     category: "airline",
-    slug: "american-airlines",
+    slug: "american-airlines"
   },
   {
     name: "Southwest Airlines",
     category: "airline",
-    slug: "southwest-airlines",
+    slug: "southwest-airlines"
   },
   {
     name: "United Airlines",
     category: "airline",
-    slug: "united-airlines",
+    slug: "united-airlines"
   },
   {
     name: "Marriot",
     category: "hotel",
-    slug: "marriot",
+    slug: "marriot"
   },
   {
     name: "Hilton",
     category: "hotel",
-    slug: "hilton",
+    slug: "hilton"
   },
   {
     name: "Enterprise",
     category: "car rental",
-    slug: "enterprise",
+    slug: "enterprise"
   },
   {
     name: "Hertz",
     category: "car rental",
-    slug: "hertz",
+    slug: "hertz"
   },
   {
     name: "Amazon",
     category: "e-commerce",
-    slug: "amazon",
+    slug: "amazon"
   },
   {
     name: "Lululemon",
     category: "e-commerce",
-    slug: "lululemon",
-  },
+    slug: "lululemon"
+  }
 ])
