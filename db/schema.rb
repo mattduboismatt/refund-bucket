@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_24_010810) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_24_011601) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "credits", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.uuid "dealer_id"
+    t.decimal "amount", null: false
+    t.string "method", null: false
+    t.string "description"
+    t.date "expires_at"
+    t.boolean "never_expires", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dealer_id"], name: "index_credits_on_dealer_id"
+    t.index ["user_id"], name: "index_credits_on_user_id"
+  end
 
   create_table "dealers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
@@ -32,4 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_24_010810) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "credits", "dealers"
+  add_foreign_key "credits", "users"
 end
