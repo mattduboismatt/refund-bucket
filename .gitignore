@@ -14,8 +14,8 @@
 !/tmp/.keep
 
 # Ignore test artifacts
-coverage/*
-spec/examples.txt
+/coverage/*
+/spec/examples.txt
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
