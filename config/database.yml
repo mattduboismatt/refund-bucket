@@ -83,4 +83,4 @@ production:
   <<: *default
   database: refund_bucket_production
   username: refund_bucket
-  password: <%= ENV["REFUNED_BUCKET_DATABASE_PASSWORD"] %>
+  password: <%= ENV["REFUND_BUCKET_DATABASE_PASSWORD"] %>
