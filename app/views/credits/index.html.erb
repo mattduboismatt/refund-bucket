@@ -1,1 +1,40 @@
 <h1>💸 Your credits, your money 💸</h1>
+
+<%= render "form", credit: Credit.new %>
+
+<% if @credits.any? %>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Dealer
+          </th>
+          <th>
+            Amount
+          </th>
+          <th>
+            Notes
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @credits.each do |credit| %>
+          <tr>
+            <td>
+              <%= credit.dealer&.name || "Other (see notes)" %>
+            </td>
+            <td>
+              <%= number_with_precision(credit.amount, precision: 2,  strip_insignificant_zeros: true) %>
+            </td>
+            <td>
+              <%= credit.notes %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  No credits yet.
+<% end %>

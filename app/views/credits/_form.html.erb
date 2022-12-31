@@ -1,0 +1,23 @@
+<%= form_with(model: credit) do |f| %>
+  <div>
+    <%= f.label :dealer %>
+    <%= f.select :dealer_id, options_from_collection_for_select(@dealers, "id", "name"),
+                   {include_blank: "Dealer" },
+                   {required: true, autofocus: true} %>
+  </div>
+
+  <div>
+    <%= f.label :amount %>
+    <%= f.number_field :amount, step: "any",
+                       value: number_with_precision(f.object.amount,precision: 2,  strip_insignificant_zeros: true),
+                       placeholder: "$ or points",
+                       required: true %>
+  </div>
+
+  <div>
+    <%= f.label :notes %>
+    <%= f.text_field :notes %>
+  </div>
+
+  <%= f.submit "Save" %>
+<% end %>
