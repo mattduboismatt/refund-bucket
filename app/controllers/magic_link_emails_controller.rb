@@ -14,6 +14,24 @@ class MagicLinkEmailsController < ApplicationController
 
   def authenticate
     Rails.logger.info("Authenticating user from magic link email #{params.inspect}")
-    redirect_to root_path
+    user = User.where(auth_token: params[:token])
+      .where("auth_token_expires_at > ?", Time.zone.now)
+      .first
+
+    if user.present?
+      reset_session
+      session[:user_id] = user.id
+      flash[:notice] = "Hi #{user.email}"
+      redirect_to params[:redirect_path]
+    else
+      flash[:error] = "Hmm... that didn't work. Please try again?"
+      redirect_to new_magic_link_email_path(redirect_path: params[:redirect_path])
+    end
+  end
+
+  def destroy
+    reset_session
+    flash[:notice] = "Cya later!"
+    redirect_to new_magic_link_email_path
   end
 end

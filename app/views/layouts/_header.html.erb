@@ -4,4 +4,7 @@
       <h1>Refund Bucket</h1>
     <% end %>
   </div>
+  <% if logged_in? %>
+    <%= link_to "Log out", magic_link_email_path, data: { "turbo-method": :delete } %>
+  <% end %>
 </header>
