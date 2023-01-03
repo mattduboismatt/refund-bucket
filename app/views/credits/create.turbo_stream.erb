@@ -1,3 +1,6 @@
 <%= turbo_stream.update "credits_count", current_user.credits_count %>
 <%= render_update_stats_stream(@credits) %>
+<%= turbo_stream.update "new_credit" do %>
+  <%= render "form", credit: Credit.new %>
+<% end %>
 <%= turbo_stream.prepend "credits", @credit %>

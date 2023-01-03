@@ -1,3 +1,5 @@
 <h2>New Credit</h2>
 
-<%= render "form", credit: @credit %>
+<%= turbo_frame_tag "new_credit" do %>
+  <%= render "form", credit: @credit %>
+<% end %>

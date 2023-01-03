@@ -11,8 +11,4 @@ export default class extends Controller {
   submit(_event) {
     this.element.requestSubmit()
   }
-
-  reset() {
-    this.element.reset()
-  }
 }

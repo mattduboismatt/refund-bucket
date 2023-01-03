@@ -8,12 +8,13 @@ class CreditsController < ApplicationController
 
   def create
     @credit = current_user.credits.new(credit_params)
+    @dealers = Dealer.all.select(:id, :name)
+
     if @credit.save
       @credits = current_user.credits.includes(:dealer).reverse
       flash.now[:notice] = "Success!"
     else
-      @dealers = Dealer.all.select(:id, :name)
-      flash[:error] = "Did not save. Please try again."
+      flash.now[:error] = "Did not save. Please try again."
       render :new, status: :unprocessable_entity
     end
   end

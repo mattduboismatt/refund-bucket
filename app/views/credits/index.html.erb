@@ -1,8 +1,8 @@
 <h1>💸 Your credits, your money 💸</h1>
 
-<div id="new_credit">
+<%= turbo_frame_tag "new_credit" do %>
   <%= render "form", credit: Credit.new %>
-</div>
+<% end %>
 
 <div id="stats">
   <%= render "stats", credits: @credits %>
