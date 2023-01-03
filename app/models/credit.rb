@@ -1,6 +1,6 @@
 class Credit < ApplicationRecord
-  belongs_to :user
-  belongs_to :dealer, optional: true
+  belongs_to :user, counter_cache: true
+  belongs_to :dealer, counter_cache: true, optional: true
 
   METHODS = ["credit / refund", "redemption code", "gift card"]
 

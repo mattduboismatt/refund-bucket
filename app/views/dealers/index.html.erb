@@ -1,4 +1,9 @@
-<div><%= link_to "Your Credits", credits_path %></div>
+<div>
+  <%= link_to "Your Credits", credits_path %>
+  <% if logged_in? %>
+    <span><%= current_user.credits_count %></span>
+  <% end %>
+</div>
 
 <div>
   <%= render @dealers %>

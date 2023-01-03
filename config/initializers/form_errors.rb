@@ -1,5 +1,6 @@
 # Inline form-field error messages
 
+# TODO: revist this error messaging handler
 ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
   if html_tag =~ /type="hidden"/ || html_tag =~ /<label/
     html_tag
