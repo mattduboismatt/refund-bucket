@@ -6,5 +6,26 @@
 </div>
 
 <div>
+  <%= form_with(url: dealers_path, method: :get) do |f| %>
+    <div>
+      <%= f.search_field :name, placeholder: 'Name...',
+            value: params[:name] %>
+    </div>
+    <div>
+      <%= f.select :category, @dealer_categories,
+            include_blank: "All categories", selected: params[:category] %>
+    </div>
+    <div>
+      <%= f.select :sort,
+            [["By Name", "name"], ["By Popularity", "credits_count"]],
+            include_blank: "Sort by", selected: params[:sort] %>
+    </div>
+    <div>
+      <%= f.submit "Search" %>
+    </div>
+  <% end %>
+</div>
+
+<div>
   <%= render @dealers %>
 </div>
