@@ -1,0 +1,6 @@
+<%= turbo_stream.update "credits_count", current_user.credits_count %>
+<%= turbo_stream.update "stats" do %>
+  <%= render "stats", credits: @credits %>
+<% end %>
+
+<%= turbo_stream.remove @credit %>

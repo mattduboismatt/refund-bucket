@@ -1,9 +1,11 @@
-<%= form_with(model: credit) do |f| %>
+<%= form_with(model: credit,
+  data: { controller: "form", action: "turbo:submit-end->form#reset" }) do |f| %>
   <div>
     <%= f.label :dealer %>
-    <%= f.select :dealer_id, options_from_collection_for_select(@dealers, "id", "name"),
+    <%= f.select :dealer_id,
+      options_from_collection_for_select(@dealers, "id", "name", params[:dealer_id]),
                    {include_blank: "Dealer" },
-                   {required: true, autofocus: true} %>
+                   {required: true} %>
   </div>
 
   <div>
@@ -11,6 +13,7 @@
     <%= f.number_field :amount, step: "any",
                        value: number_with_precision(f.object.amount,precision: 2,  strip_insignificant_zeros: true),
                        placeholder: "$ or points",
+                       autofocus: true,
                        required: true %>
   </div>
 

@@ -1,0 +1,9 @@
+<div>
+  <span>
+    <%= credits.length %>
+  </span>
+  credits for
+  <span>
+    $<%= credits.map(&:amount).reduce(0, &:+) %>
+  </span>
+</div>

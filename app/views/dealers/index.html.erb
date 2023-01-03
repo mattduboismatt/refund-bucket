@@ -1,11 +1,4 @@
 <div>
-  <%= link_to "Your Credits", credits_path %>
-  <% if logged_in? %>
-    <span><%= current_user.credits_count %></span>
-  <% end %>
-</div>
-
-<div>
   <%= form_with(url: dealers_path, method: :get,
         data: {
           turbo_frame: "results",

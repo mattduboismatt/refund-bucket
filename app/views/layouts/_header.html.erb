@@ -7,4 +7,10 @@
   <% if logged_in? %>
     <%= link_to "Log out", magic_link_email_path, data: { "turbo-method": :delete } %>
   <% end %>
+  <div>
+    <%= link_to "Your Credits", credits_path %>
+    <% if logged_in? %>
+      <span id="credits_count" data-turbo-permanent><%= current_user.credits_count %></span>
+    <% end %>
+  </div>
 </header>

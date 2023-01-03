@@ -1,4 +1,6 @@
 class Credit < ApplicationRecord
+  self.implicit_order_column = :created_at
+
   belongs_to :user, counter_cache: true
   belongs_to :dealer, counter_cache: true, optional: true
 
