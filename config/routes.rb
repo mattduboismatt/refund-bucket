@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   match "magic_link_emails/authenticate", to: "magic_link_emails#authenticate", via: [:get, :post]
 
   resources :dealers, param: :slug, only: [:index]
-  resources :credits, only: [:index, :create, :destroy]
+  resources :credits
 end

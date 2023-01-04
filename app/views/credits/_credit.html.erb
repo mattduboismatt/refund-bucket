@@ -1,6 +1,9 @@
-<div id="<%= dom_id(credit)%>">
-  <%= credit.dealer&.name || "Other (see notes)" %>
-  $<%= number_with_precision(credit.amount, precision: 2,  strip_insignificant_zeros: true) %>
-  <%= credit.notes %>
-  <%= link_to "Delete", credit_path(credit), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
-</div>
+<%= turbo_frame_tag credit do %>
+  <div>
+    <%= credit.dealer&.name || "Other (see notes)" %>
+    $<%= number_with_precision(credit.amount, precision: 2,  strip_insignificant_zeros: true) %>
+    <%= credit.notes %>
+    <%= link_to "Edit", edit_credit_path(credit) %>
+    <%= link_to "Delete", credit_path(credit), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+  </div>
+<% end %>

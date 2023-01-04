@@ -22,4 +22,7 @@
   </div>
 
   <%= f.submit "Save" %>
+  <% if !credit.new_record? %>
+    <%= link_to "Cancel", @credit %>
+  <% end %>
 <% end %>
