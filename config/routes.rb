@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   resources :dealers, param: :slug, only: [:index]
   resources :credits
+  resources :users, only: [:show]
 end

@@ -1,16 +1,36 @@
 <header>
-  <div>
+  <nav class="primary">
+    <ul>
+      <% if logged_in? %>
+        <li>
+          <%= link_to "Preferences", user_path(current_user) %>
+        </li>
+        <li>
+          <%= link_to "Log out", magic_link_email_path, data: { "turbo-method": :delete } %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "Log in", new_magic_link_email_path %>
+        </li>
+        <li>
+          <%= link_to "Sign up", new_magic_link_email_path %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+  <div class="logo">
     <%= link_to root_path do %>
-      <h1>Refund Bucket</h1>
+      <h1>Refund 🪣</h1>
     <% end %>
   </div>
-  <% if logged_in? %>
-    <%= link_to "Log out", magic_link_email_path, data: { "turbo-method": :delete } %>
-  <% end %>
-  <div>
-    <%= link_to "Your Credits", credits_path %>
-    <% if logged_in? %>
-      <span id="credits_count" data-turbo-permanent><%= current_user.credits_count %></span>
-    <% end %>
-  </div>
+  <nav class="secondary">
+    <ul>
+      <li>
+        <%= link_to "Your Credits", credits_path %>
+        <% if logged_in? %>
+          <span class="credits-count" id="credits_count" data-turbo-permanent><%= current_user.credits_count %></span>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
 </header>
