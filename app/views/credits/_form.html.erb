@@ -15,6 +15,18 @@
                        autofocus: true,
                        required: true %>
   </div>
+  <div>
+    <%= f.label :expires_at %>
+    <%= f.text_field :expires_at,
+      data: {
+        controller: "flatpickr",
+        flatpickr_min_date: Time.zone.now
+      } %>
+  </div>
+    <div>
+    <%= f.label :never_expires, "Never expires?" %>
+    <%= f.check_box :never_expires %>
+  </div>
 
   <div>
     <%= f.label :notes %>

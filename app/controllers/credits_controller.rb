@@ -43,7 +43,7 @@ class CreditsController < ApplicationController
   private
 
   def credit_params
-    params.require(:credit).permit(:dealer_id, :amount, :notes)
+    params.require(:credit).permit(:dealer_id, :amount, :notes, :expires_at, :never_expires)
   end
 
   def set_dealers
