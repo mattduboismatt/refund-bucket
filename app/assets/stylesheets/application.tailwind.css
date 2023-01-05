@@ -169,3 +169,60 @@ footer {
     }
   }
 }
+
+#credits_index {
+  @apply flex flex-col items-center space-y-4 mx-auto md:max-w-7xl;
+
+  & .header {
+    @apply text-center py-2 px-6 bg-rose-200 rounded-xl;
+
+    & .stats {
+      @apply text-sm;
+    }
+  }
+
+  & form {
+    @apply mx-24 flex flex-col;
+
+    & .row {
+      @apply flex space-x-8;
+    }
+
+    & input, label, select {
+      @apply mb-1;
+    }
+
+    & .never-expires {
+      @apply pt-8;
+    }
+
+    & .notes {
+      @apply flex-grow;
+    }
+
+    & .save-cancel {
+      @apply flex items-start space-x-2;
+
+      & input[type="submit"] {
+        @apply w-24;
+      }
+    }
+  }
+}
+
+#magic_link_emails_new,
+#users_show {
+  @apply mx-auto max-w-md w-full;
+
+  & h2 {
+    @apply text-center mb-4;
+  }
+
+  & p {
+    @apply italic mb-4;
+  }
+
+  & input[type="submit"] {
+    @apply mt-6;
+  }
+}

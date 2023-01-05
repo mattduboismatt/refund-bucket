@@ -1,22 +1,25 @@
-<h1>💸 Your credits, your money 💸</h1>
+<div class="header">
+  <h1>💸 Your credits, your money 💸</h1>
+  <div class="stats" id="stats">
+    <%= render "stats", credits: @credits %>
+  </div>
+</div>
 
 <%= turbo_frame_tag "new_credit" do %>
   <%= render "form", credit: Credit.new %>
 <% end %>
 
-<div id="stats">
-  <%= render "stats", credits: @credits %>
-</div>
-
-<div>
-  <span>Dealer</span>
-  <span>Amount</span>
-  <span>Notes</span>
-</div>
-<% if @credits.any? %>
-  <div id="credits">
-    <%= render @credits %>
+<div class="credits_table">
+  <div>
+    <span>Dealer</span>
+    <span>Amount</span>
+    <span>Notes</span>
   </div>
-<% else %>
-  No credits yet.
-<% end %>
+  <% if @credits.any? %>
+    <div id="credits">
+      <%= render @credits %>
+    </div>
+  <% else %>
+    No credits yet.
+  <% end %>
+</div>

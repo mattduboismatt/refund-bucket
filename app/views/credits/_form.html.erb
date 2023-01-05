@@ -1,40 +1,51 @@
 <%= form_with(model: credit) do |f| %>
-  <div>
-    <%= f.label :dealer %>
-    <%= f.select :dealer_id,
-      options_from_collection_for_select(@dealers, "id", "name", credit.dealer_id || params[:dealer_id]),
-                   {include_blank: "Dealer" },
-                   {required: true} %>
-  </div>
-
-  <div>
-    <%= f.label :amount %>
-    <%= f.number_field :amount, step: "any",
-                       value: f.object.amount.zero? ? nil : number_with_precision(f.object.amount,precision: 2,  strip_insignificant_zeros: true),
-                       placeholder: "$ or points",
-                       autofocus: true,
-                       required: true %>
-  </div>
-  <div>
-    <%= f.label :expires_at %>
-    <%= f.text_field :expires_at,
-      data: {
-        controller: "flatpickr",
-        flatpickr_min_date: Time.zone.now
-      } %>
-  </div>
+  <div class="row">
     <div>
-    <%= f.label :never_expires, "Never expires?", class: "inline" %>
-    <%= f.check_box :never_expires %>
+      <%= f.label :dealer %>
+      <%= f.select :dealer_id,
+        options_from_collection_for_select(@dealers, "id", "name", credit.dealer_id || params[:dealer_id]),
+                    {include_blank: "Dealer" },
+                    {required: true} %>
+    </div>
+    <div>
+      <%= f.label :amount %>
+      <%= f.number_field :amount, step: "any",
+                        value: f.object.amount.zero? ? nil : number_with_precision(f.object.amount,precision: 2,  strip_insignificant_zeros: true),
+                        placeholder: "$ or points",
+                        autofocus: true,
+                        required: true %>
+    </div>
+    <div>
+      <%= f.label :reference_number %>
+      <%= f.text_field :reference_number %>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <%= f.label :expires_at %>
+      <%= f.text_field :expires_at,
+        data: {
+          controller: "flatpickr",
+          flatpickr_min_date: Time.zone.now
+        } %>
+    </div>
+    <div class="never-expires">
+      <%= f.check_box :never_expires %>
+      <%= f.label :never_expires, "Never expires?", class: "inline" %>
+    </div>
   </div>
 
-  <div>
-    <%= f.label :notes %>
-    <%= f.text_field :notes %>
+  <div class="row">
+    <div class="notes">
+      <%= f.label :notes %>
+      <%= f.text_field :notes %>
+    </div>
   </div>
 
-  <%= f.submit "Save" %>
-  <% if !credit.new_record? %>
-    <%= link_to "Cancel", @credit %>
-  <% end %>
+  <div class="row save-cancel">
+    <%= f.submit "Save" %>
+    <% if !credit.new_record? %>
+      <%= link_to "Cancel", @credit %>
+    <% end %>
+  </div>
 <% end %>

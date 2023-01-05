@@ -1,5 +1,6 @@
 <p>Enter your email. An account will be created for you if you do not already have one.</p>
 <%= form_with url: magic_link_email_path do |f| %>
+  <%= f.label :email %>
   <%= f.email_field :email, placeholder: "abc@example.com" %>
   <%= f.hidden_field :redirect_path, value: @redirect_path %>
   <%= f.submit "Send Magic Link" %>
