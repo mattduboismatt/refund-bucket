@@ -1,4 +1,4 @@
-<div>
+<div class="search">
   <%= form_with(url: dealers_path, method: :get,
         data: {
           turbo_frame: "results",
@@ -23,7 +23,7 @@
 </div>
 
 <%= turbo_frame_tag "results" do %>
-  <div>
+  <div class="dealers">
     <%= render @dealers %>
   </div>
 <% end %>

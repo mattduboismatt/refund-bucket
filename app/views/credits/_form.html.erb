@@ -10,7 +10,7 @@
   <div>
     <%= f.label :amount %>
     <%= f.number_field :amount, step: "any",
-                       value: number_with_precision(f.object.amount,precision: 2,  strip_insignificant_zeros: true),
+                       value: f.object.amount.zero? ? nil : number_with_precision(f.object.amount,precision: 2,  strip_insignificant_zeros: true),
                        placeholder: "$ or points",
                        autofocus: true,
                        required: true %>
@@ -24,7 +24,7 @@
       } %>
   </div>
     <div>
-    <%= f.label :never_expires, "Never expires?" %>
+    <%= f.label :never_expires, "Never expires?", class: "inline" %>
     <%= f.check_box :never_expires %>
   </div>
 

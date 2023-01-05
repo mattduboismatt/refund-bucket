@@ -12,6 +12,10 @@ h3 {
   @apply text-lg;
 }
 
+body {
+  @apply overflow-y-scroll;
+}
+
 header {
   @apply bg-slate-600;
 
@@ -70,6 +74,98 @@ header {
   }
 }
 
-body {
-  @apply overflow-y-scroll;
+main {
+  @apply mt-8;
+
+  & label {
+    @apply block mb-2 text-sm font-semibold text-gray-600;
+  }
+
+  & input[type="text"],
+  & input[type="search"],
+  & input[type="number"],
+  & input[type="password"] {
+    @apply mb-4 w-full shadow-sm px-3 py-2 border border-gray-300 text-gray-900 rounded-lg;
+  }
+
+  & input[type="text"]:focus,
+  & input[type="search"]:focus,
+  & input[type="number"]:focus,
+  & input[type="password"]:focus {
+    @apply outline-none ring-1 ring-gray-300 border-gray-300;
+  }
+
+  & button[type="submit"],
+  & input[type="submit"] {
+    @apply mb-4 w-full py-2 px-4 border border-transparent font-medium rounded-md text-white bg-blue-500 cursor-pointer;
+  }
+
+  & button[type="submit"]:focus,
+  & input[type="submit"]:focus {
+    @apply outline-none border-blue-700 ring-2 ring-offset-2 ring-blue-300;
+  }
+
+  & button[type="submit"]:active,
+  & input[type="submit"]:active {
+    @apply bg-blue-700;
+  }
+
+  & button[type="submit"]:hover,
+  & input[type="submit"]:hover {
+    @apply bg-blue-600;
+  }
+
+  & select {
+    @apply mb-4 w-full appearance-none relative block shadow-sm py-2 text-lg border-gray-300 rounded-md;
+  }
+
+  & select:focus {
+    @apply outline-none ring-1 ring-gray-300 border-gray-300;
+  }
+
+  & .field-with-errors {
+    & input,
+    & textarea,
+    & select {
+      @apply border-red-300;
+    }
+
+    & .error {
+      @apply block text-red-700 text-sm;
+    }
+  }
+}
+
+footer {
+  @apply mt-12 mb-0 text-center py-4 text-gray-500;
+}
+
+#dealers_index {
+  & .search {
+    @apply mb-4;
+
+    & form {
+      @apply sm:flex sm:space-x-4 items-center justify-center;
+    }
+  }
+
+  & .dealers {
+    @apply flex items-center flex-wrap justify-center;
+
+    & .dealer {
+      @apply relative m-4 p-4 rounded-lg bg-gray-200 shadow-lg w-64;
+
+      & .name {
+        @apply pt-6 text-center text-gray-900 font-bold text-xl;
+      }
+
+      & .credits-count {
+        @apply absolute -top-0 right-0 rounded-bl-xl rounded-tr-lg font-semibold p-3 text-sm bg-orange-200 border-2 border-orange-300 text-orange-800 leading-none;
+      }
+
+      & button[type="submit"] {
+        @apply mt-6 uppercase;
+      }
+    }
+  }
 }

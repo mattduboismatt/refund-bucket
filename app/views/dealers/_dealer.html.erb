@@ -1,5 +1,11 @@
-<div>
-  <%= dealer.name %>
-  <%= dealer.credits_count %>
-  <%= link_to "Add+", credits_path(dealer_id: dealer.id) %>
+<div class="dealer">
+  <div class="name">
+    <%= dealer.name %>
+  </div>
+  <div class="credits-count">
+    <%= dealer.credits_count %>
+  </div>
+  <div>
+    <%= button_to "Add", credits_path, method: :get, params: { dealer_id: dealer.id } %>
+  </div>
 </div>
