@@ -9,14 +9,17 @@
   <%= render "form", credit: Credit.new %>
 <% end %>
 
-<div class="credits_table">
-  <div>
-    <span>Dealer</span>
-    <span>Amount</span>
-    <span>Notes</span>
+<div class="credits-table">
+  <div class="credits-table-header">
+    <div>Dealer</div>
+    <div>Amount</div>
+    <div>Reference No.</div>
+    <div>Expires At</div>
+    <div>Notes</div>
+    <div>🧼</div>
   </div>
   <% if @credits.any? %>
-    <div id="credits">
+    <div class="credits" id="credits">
       <%= render @credits %>
     </div>
   <% else %>
