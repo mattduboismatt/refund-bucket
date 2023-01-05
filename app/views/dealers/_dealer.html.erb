@@ -2,10 +2,12 @@
   <div class="name">
     <%= dealer.name %>
   </div>
-  <div class="credits-count">
-    <%= dealer.credits_count %>
-  </div>
   <div>
     <%= button_to "Add", credits_path, method: :get, params: { dealer_id: dealer.id } %>
   </div>
+  <% if dealer.credits_count.positive? %>
+    <div class="credits-count">
+      <%= "#{dealer.credits_count} credits 🌎" %>
+    </div>
+  <% end %>
 </div>

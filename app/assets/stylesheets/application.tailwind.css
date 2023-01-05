@@ -160,7 +160,7 @@ footer {
       }
 
       & .credits-count {
-        @apply absolute -top-0 right-0 rounded-bl-xl rounded-tr-lg font-semibold p-3 text-sm bg-orange-200 border-2 border-orange-300 text-orange-800 leading-none;
+        @apply absolute bottom-0 inset-x-0 text-center mx-16 rounded-lg font-semibold p-1 text-sm bg-orange-200 text-orange-800 leading-none;
       }
 
       & button[type="submit"] {
@@ -223,6 +223,8 @@ footer {
 }
 
 #magic_link_emails_new,
+#credits_new,
+#credits_edit,
 #users_show {
   @apply mx-auto max-w-md w-full;
 

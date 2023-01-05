@@ -6,7 +6,7 @@ class MagicLinkMailer < ApplicationMailer
 
     mail(
       to: @user.email,
-      subject: "TODO: click this now!"
+      subject: "RefundBucket - your magic link"
     )
   end
 end
