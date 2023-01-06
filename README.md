@@ -1,24 +1,43 @@
-# README
+# Refund 🪣
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+👾 Here to help you remember! 👾
 
-Things you may want to cover:
+Track your flight credits, vouchers, gift cards, and more.
 
-* Ruby version
+Built with Rails 7, Hotwire, and Tailwind.
 
-* System dependencies
+## Dependencies
 
-* Configuration
+- _ruby_ - (see `.ruby-version` file for version)
+- _bundler_ - `gem install bundler`
+- _postgres_ - `brew install postgres`
 
-* Database creation
+## Setup
 
-* Database initialization
+```
+$ bundle
+$ yarn
+$ rails db:reset
+```
 
-* How to run the test suite
+## Development
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ bin/dev
+```
 
-* Deployment instructions
+Visit [localhost:3000](http://localhost:3000)
 
-* ...
+## Test
+
+Run the test suite:
+
+```
+$ rspec
+```
+
+Build assets, run the test suite, and run linter w/ autofix:
+
+```
+$ rake
+```
