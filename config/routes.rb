@@ -1,4 +1,8 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq', :constraints => AdminConstraint.new
+
   root "dealers#index"
 
   resource :magic_link_email, only: [:new, :create, :destroy]
