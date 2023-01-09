@@ -14,6 +14,7 @@ gem "cssbundling-rails"
 gem "redis"
 
 gem "money-rails"
+gem "sidekiq"
 
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false

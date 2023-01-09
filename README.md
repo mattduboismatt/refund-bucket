@@ -11,6 +11,7 @@ Built with Rails 7, Hotwire, and Tailwind.
 - _ruby_ - (see `.ruby-version` file for version)
 - _bundler_ - `gem install bundler`
 - _postgres_ - `brew install postgres`
+- _redis_ - `brew install redis`
 
 ## Setup
 
