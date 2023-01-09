@@ -36,6 +36,6 @@ module RefundBucket
 
     config.active_job.queue_adapter = :sidekiq
 
-    config.autoload_paths << Rails.root.join('lib')
+    config.autoload_paths << Rails.root.join("lib")
   end
 end
