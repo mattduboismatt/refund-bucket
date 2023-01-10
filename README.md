@@ -23,11 +23,19 @@ $ rails db:reset
 
 ## Development
 
+Start the web server:
+
 ```
 $ bin/dev
 ```
 
 Visit [localhost:3000](http://localhost:3000)
+
+Start the sidekiq server:
+
+```
+$ bundle exec sidekiq
+```
 
 ## Test
 
