@@ -1,0 +1,11 @@
+default: &default
+  allow_signups: <%= ENV.fetch('FF_ALLOW_SIGNUPS', false) %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

@@ -2,10 +2,12 @@ class MagicLinkEmailsController < ApplicationController
   allow_unauthenticated!
 
   def new
+    render :closed unless Rails.application.config_for(:feature_flags).allow_signups
     @redirect_path = params[:redirect_path]
   end
 
   def create
+    redirect_to root_path unless Rails.application.config_for(:feature_flags).allow_signups
     Rails.logger.info("Processing magic link email creation for #{params[:email]}")
     Authentication::MagicLink::EmailSender.call(email: params[:email], redirect_path: params[:redirect_path])
     flash[:notice] = "Email sent to #{params[:email]}"
