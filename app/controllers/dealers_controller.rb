@@ -3,6 +3,6 @@ class DealersController < ApplicationController
 
   def index
     @dealers = Dealer.search(params)
-    @dealer_categories = Dealer::CATEGORIES
+    @dealer_categories = Dealer::Categories::ALL
   end
 end

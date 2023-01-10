@@ -1,9 +1,16 @@
 class Dealer < ApplicationRecord
-  CATEGORIES = ["airline", "hotel", "car rental", "e-commerce"]
+  module Categories
+    ALL = [
+      AIRLINE = "airline",
+      HOTEL = "hotel",
+      CAR_RENTAL = "car rental",
+      E_COMMERCE = "e-commerce"
+    ]
+  end
 
   validates :name, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true
-  validates :category, inclusion: {in: CATEGORIES, message: "%{value} is not a valid category"}
+  validates :category, inclusion: {in: Categories::ALL, message: "%{value} is not a valid category"}
 
   scope :with_name, ->(name) { where("lower(name) LIKE ?", "%#{name.downcase}%") if name.present? }
   scope :with_category, ->(category) { where(category: category) if category.present? }
