@@ -16,6 +16,11 @@
       <%= credit.notes %>
     </div>
     <div>
+      <% if credit.redeemed? %>
+        <%= link_to "Unredeem", unredeem_credit_path(credit), data: {turbo_method: :patch} %>
+      <% else %>
+        <%= link_to "Redeem", redeem_credit_path(credit), data: {turbo_method: :patch} %>
+      <% end %>
       <%= link_to "Edit", edit_credit_path(credit) %>
       <%= link_to "Delete", credit_path(credit), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
     </div>

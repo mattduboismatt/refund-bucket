@@ -11,4 +11,7 @@ class Credit < ApplicationRecord
   validates :never_expires, inclusion: {in: [true, false], message: "%{value} is not valid for never_expires"}
 
   monetize :amount_cents, numericality: {greater_than: 0}
+
+  scope :redeemed, -> { where(redeemed: true) }
+  scope :unredeemed, -> { where(redeemed: false) }
 end

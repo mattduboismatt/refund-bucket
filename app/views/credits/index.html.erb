@@ -26,7 +26,20 @@
         <%= render @credits %>
       </div>
     <% else %>
-      <div class="no-credits">No credits yet.</div>
+      <div id="no_credits" class="no-credits">No unredeemed credits yet.</div>
     <% end %>
   <% end %>
 </div>
+
+<%= turbo_frame_tag "redeemed_credits" do %>
+  <% if @redeemed_credits.any? %>
+    <div class="redeemed-credits-table">
+      <div class="credits-table-header">
+        <div>Redeemed Credits</div>
+      </div>
+      <div class="credits">
+        <%= render @redeemed_credits %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

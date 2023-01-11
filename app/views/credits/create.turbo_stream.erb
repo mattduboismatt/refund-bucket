@@ -5,3 +5,4 @@
   <%= render "form", credit: Credit.new %>
 <% end %>
 <%= turbo_stream.prepend "credits", @credit %>
+<%= turbo_stream.remove "no_credits" %>

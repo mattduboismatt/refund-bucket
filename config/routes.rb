@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   match "magic_link_emails/authenticate", to: "magic_link_emails#authenticate", via: [:get, :post]
 
   resources :dealers, param: :slug, only: [:index]
-  resources :credits
+  resources :credits do
+    member do
+      patch :redeem
+      patch :unredeem
+    end
+  end
   resources :users, only: [:show]
 end

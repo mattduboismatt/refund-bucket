@@ -1,16 +1,17 @@
 class CreditsController < ApplicationController
   before_action :set_dealers, only: %i[index create edit update]
-  before_action :set_credit, only: %i[show destroy edit update]
+  before_action :set_credit, only: %i[show destroy edit update redeem unredeem]
 
   def index
-    @credits = current_user.credits.includes(:dealer).reverse
+    @credits = current_user.credits.unredeemed.includes(:dealer).reverse
+    @redeemed_credits = current_user.credits.redeemed.includes(:dealer)
   end
 
   def create
     @credit = current_user.credits.new(credit_params)
 
     if @credit.save
-      @credits = current_user.credits.includes(:dealer).reverse
+      @credits = current_user.credits.unredeemed.includes(:dealer).reverse
       flash.now[:notice] = "Created."
     else
       flash.now[:error] = "Did not save. Please try again."
@@ -26,7 +27,7 @@ class CreditsController < ApplicationController
 
   def update
     if @credit.update(credit_params)
-      @credits = current_user.credits.includes(:dealer).reverse
+      @credits = current_user.credits.unredeemed.includes(:dealer).reverse
       flash.now[:notice] = "Updated."
     else
       flash.now[:error] = "Did not save. Please try again."
@@ -36,8 +37,20 @@ class CreditsController < ApplicationController
 
   def destroy
     @credit.destroy
-    @credits = current_user.credits.includes(:dealer).reverse
+    @credits = current_user.credits.unredeemed.includes(:dealer).reverse
     flash.now[:notice] = "Deleted."
+  end
+
+  def redeem
+    @credit.toggle!(:redeemed)
+    flash[:notice] = "Marked as redeemed."
+    redirect_to credits_path
+  end
+
+  def unredeem
+    @credit.toggle!(:redeemed)
+    flash[:notice] = "Marked as not redeemed."
+    redirect_to credits_path
   end
 
   private
