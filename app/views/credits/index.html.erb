@@ -18,11 +18,15 @@
     <div>Notes</div>
     <div>🧼</div>
   </div>
-  <% if @credits.any? %>
-    <div class="credits" id="credits">
-      <%= render @credits %>
-    </div>
-  <% else %>
-    <div class="no-credits">No credits yet.</div>
+  <%= turbo_frame_tag "credits",
+        autoscroll: true,
+        data: { autoscroll_block: "start" } do %>
+    <% if @credits.any? %>
+      <div class="credits">
+        <%= render @credits %>
+      </div>
+    <% else %>
+      <div class="no-credits">No credits yet.</div>
+    <% end %>
   <% end %>
 </div>
