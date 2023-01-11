@@ -24,7 +24,7 @@ class MagicLinkEmailsController < ApplicationController
       reset_session
       session[:user_id] = user.id
       flash[:notice] = "Hi #{user.email}"
-      redirect_to params[:redirect_path]
+      redirect_to params[:redirect_path] || root_path
     else
       flash[:error] = "Hmm... that didn't work. Please try again?"
       redirect_to new_magic_link_email_path(redirect_path: params[:redirect_path])
