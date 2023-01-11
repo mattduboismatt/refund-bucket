@@ -21,7 +21,7 @@ RSpec.describe MagicLinkMailer do
     it "renders the headers" do
       expect(mail.subject).to eq("RefundBucket - your magic link")
       expect(mail.to).to eq([user.email])
-      expect(mail.from).to eq(["from@example.com"]) # TODO: update when mail server is configured
+      expect(mail.from).to eq(["service@refundbucket.com"])
     end
 
     it "renders a link to the authentication url with token" do
