@@ -11,7 +11,7 @@
       <%= f.label :amount %>
       <%= f.number_field :amount, step: "any",
                         value: f.object.amount.zero? ? nil : number_with_precision(f.object.amount,precision: 2,  strip_insignificant_zeros: true),
-                        placeholder: "$ or points",
+                        placeholder: "$",
                         autofocus: true,
                         required: true %>
     </div>
