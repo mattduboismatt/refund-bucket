@@ -82,6 +82,7 @@ main {
   }
 
   & input[type="text"],
+  & textarea,
   & input[type="search"],
   & input[type="number"],
   & input[type="password"] {
@@ -89,6 +90,7 @@ main {
   }
 
   & input[type="text"]:focus,
+  & textarea:focus,
   & input[type="search"]:focus,
   & input[type="number"]:focus,
   & input[type="password"]:focus {
