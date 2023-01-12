@@ -14,4 +14,8 @@ class Credit < ApplicationRecord
 
   scope :redeemed, -> { where(redeemed: true) }
   scope :unredeemed, -> { where(redeemed: false) }
+
+  def self.stats_for(user)
+    user.credits.unredeemed.map(&:amount)
+  end
 end

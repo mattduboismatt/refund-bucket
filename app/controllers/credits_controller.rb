@@ -5,13 +5,14 @@ class CreditsController < ApplicationController
   def index
     all_credits = current_user.credits.includes(:dealer).order(created_at: :desc)
     @credits = params[:with_redeemed] ? all_credits : all_credits.unredeemed
+    @stats = Credit.stats_for(current_user)
   end
 
   def create
     @credit = current_user.credits.new(credit_params)
 
     if @credit.save
-      @credits = current_user.credits.unredeemed.includes(:dealer).reverse
+      @stats = Credit.stats_for(current_user)
       flash.now[:notice] = "Created."
     else
       flash.now[:error] = "Did not save. Please try again."
@@ -27,7 +28,7 @@ class CreditsController < ApplicationController
 
   def update
     if @credit.update(credit_params)
-      @credits = current_user.credits.unredeemed.includes(:dealer).reverse
+      @stats = Credit.stats_for(current_user)
       flash.now[:notice] = "Updated."
     else
       flash.now[:error] = "Did not save. Please try again."
@@ -37,14 +38,14 @@ class CreditsController < ApplicationController
 
   def destroy
     @credit.destroy
-    @credits = current_user.credits.unredeemed.includes(:dealer).reverse
+    @stats = Credit.stats_for(current_user)
     flash.now[:notice] = "Deleted."
   end
 
   def toggle
     @credit.toggle!(:redeemed)
+    @stats = Credit.stats_for(current_user)
     flash.now[:notice] = "Updated."
-    redirect_to credits_path(with_redeemed: params[:with_redeemed])
   end
 
   private

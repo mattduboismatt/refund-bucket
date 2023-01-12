@@ -1,7 +1,7 @@
 module CreditsHelper
-  def render_update_stats_stream(credits)
+  def render_update_stats_stream(stats)
     turbo_stream.update "stats" do
-      render "stats", credits: credits
+      render "stats", stats: stats
     end
   end
 end

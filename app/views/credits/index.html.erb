@@ -1,7 +1,7 @@
 <div class="header">
   <h1>💸 Your credits, your money 💸</h1>
   <div class="stats" id="stats">
-    <%= render "stats", credits: @credits %>
+    <%= render "stats", stats: @stats %>
   </div>
 </div>
 
@@ -11,7 +11,7 @@
 
 
 <div class="credits-container">
-  <%= turbo_frame_tag "credits",
+  <%= turbo_frame_tag "credits_container",
         autoscroll: true,
         data: { autoscroll_block: "start" } do %>
     <div>
@@ -22,7 +22,6 @@
       <% end %>
     </div>
     <div class="credits-table">
-
       <div class="credits-table-header">
         <div>Dealer</div>
         <div>Amount</div>
@@ -32,7 +31,7 @@
         <div>🧼</div>
       </div>
       <% if @credits.any? %>
-        <div class="credits">
+        <div id="credits" class="credits">
           <%= render @credits %>
         </div>
       <% else %>
