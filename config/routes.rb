@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   resources :dealers, param: :slug, only: [:index]
   resources :credits do
     member do
-      patch :redeem
-      patch :unredeem
+      patch :toggle
     end
   end
   resources :users, only: [:show]

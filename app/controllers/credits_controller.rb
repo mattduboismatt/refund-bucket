@@ -1,10 +1,10 @@
 class CreditsController < ApplicationController
   before_action :set_dealers, only: %i[index create edit update]
-  before_action :set_credit, only: %i[show destroy edit update redeem unredeem]
+  before_action :set_credit, only: %i[show destroy edit update toggle]
 
   def index
-    @credits = current_user.credits.unredeemed.includes(:dealer).reverse
-    @redeemed_credits = current_user.credits.redeemed.includes(:dealer)
+    all_credits = current_user.credits.includes(:dealer).order(created_at: :desc)
+    @credits = params[:with_redeemed] ? all_credits : all_credits.unredeemed
   end
 
   def create
@@ -41,16 +41,10 @@ class CreditsController < ApplicationController
     flash.now[:notice] = "Deleted."
   end
 
-  def redeem
+  def toggle
     @credit.toggle!(:redeemed)
-    flash[:notice] = "Marked as redeemed."
-    redirect_to credits_path
-  end
-
-  def unredeem
-    @credit.toggle!(:redeemed)
-    flash[:notice] = "Marked as not redeemed."
-    redirect_to credits_path
+    flash.now[:notice] = "Updated."
+    redirect_to credits_path(with_redeemed: params[:with_redeemed])
   end
 
   private

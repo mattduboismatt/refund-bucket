@@ -77,6 +77,14 @@ header {
 main {
   @apply mt-8;
 
+  & a {
+    @apply py-4 text-blue-700;
+  }
+
+  & a:hover {
+    @apply text-blue-900;
+  }
+
   & label {
     @apply block mb-2 text-sm font-semibold text-gray-600;
   }
@@ -211,8 +219,12 @@ footer {
     }
   }
 
-  & .credits-table, .redeemed-credits-table {
-    @apply grid border-2 border-slate-200 w-full;
+  & .credits-container {
+    @apply w-full;
+  }
+
+  & .credits-table {
+    @apply grid border-2 border-slate-200;
 
     & .no-credits {
       @apply text-center my-4 italic;
@@ -222,21 +234,13 @@ footer {
       @apply grid grid-cols-6 border-b-2 border-slate-200 p-2;
     }
 
+    & .redeemed {
+      @apply opacity-50 bg-slate-100;
+    }
+
     & .credits-table-header {
       @apply bg-slate-100 font-bold text-lg;
     }
-  }
-
-  & .redeemed-credits-table {
-    @apply opacity-50 mt-8 border-gray-300 w-full;
-
-    & .credits, .credits-table-header {
-      @apply border-b-2 border-gray-200 bg-gray-200;
-    }
-  }
-
-  & #redeemed_credits {
-    @apply w-full;
   }
 }
 

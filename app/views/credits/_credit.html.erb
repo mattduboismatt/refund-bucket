@@ -1,5 +1,5 @@
 <%= turbo_frame_tag credit do %>
-  <div class="credit">
+  <div class="<%= credit.redeemed? ? 'credit redeemed' : 'credit' %>">
     <div>
       <%= credit.dealer&.name || "Other (see notes)" %>
     </div>
@@ -17,12 +17,12 @@
     </div>
     <div>
       <% if credit.redeemed? %>
-        <%= link_to "Unredeem", unredeem_credit_path(credit), data: {turbo_method: :patch} %>
+        <%= link_to "Unredeem", toggle_credit_path(credit, with_redeemed: params[:with_redeemed]), data: {turbo_method: :patch} %>
       <% else %>
-        <%= link_to "Redeem", redeem_credit_path(credit), data: {turbo_method: :patch} %>
+        <%= link_to "Redeem", toggle_credit_path(credit, with_redeemed: params[:with_redeemed]), data: {turbo_method: :patch} %>
+        <%= link_to "Edit", edit_credit_path(credit) %>
+        <%= link_to "Delete", credit_path(credit), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
       <% end %>
-      <%= link_to "Edit", edit_credit_path(credit) %>
-      <%= link_to "Delete", credit_path(credit), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
     </div>
   </div>
 <% end %>

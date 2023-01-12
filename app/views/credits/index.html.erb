@@ -9,37 +9,35 @@
   <%= render "form", credit: Credit.new %>
 <% end %>
 
-<div class="credits-table">
-  <div class="credits-table-header">
-    <div>Dealer</div>
-    <div>Amount</div>
-    <div>Reference No.</div>
-    <div>Expires At</div>
-    <div>Notes</div>
-    <div>🧼</div>
-  </div>
+
+<div class="credits-container">
   <%= turbo_frame_tag "credits",
         autoscroll: true,
         data: { autoscroll_block: "start" } do %>
-    <% if @credits.any? %>
-      <div class="credits">
-        <%= render @credits %>
-      </div>
-    <% else %>
-      <div id="no_credits" class="no-credits">No unredeemed credits yet.</div>
-    <% end %>
-  <% end %>
-</div>
+    <div>
+      <% if params[:with_redeemed] %>
+        <%= link_to "Hide Redeemed", credits_path %>
+      <% else %>
+        <%= link_to "Show Redeemed", credits_path(with_redeemed: true) %>
+      <% end %>
+    </div>
+    <div class="credits-table">
 
-<%= turbo_frame_tag "redeemed_credits" do %>
-  <% if @redeemed_credits.any? %>
-    <div class="redeemed-credits-table">
       <div class="credits-table-header">
-        <div>Redeemed Credits</div>
+        <div>Dealer</div>
+        <div>Amount</div>
+        <div>Reference No.</div>
+        <div>Expires At</div>
+        <div>Notes</div>
+        <div>🧼</div>
       </div>
-      <div class="credits">
-        <%= render @redeemed_credits %>
-      </div>
+      <% if @credits.any? %>
+        <div class="credits">
+          <%= render @credits %>
+        </div>
+      <% else %>
+        <div id="no_credits" class="no-credits">No unredeemed credits yet.</div>
+      <% end %>
     </div>
   <% end %>
-<% end %>
+</div>
