@@ -42,7 +42,7 @@ header {
   }
 
   & nav.secondary {
-    @apply pb-4 flex items-center justify-center;
+    @apply flex items-center justify-center;
 
     & ul {
       @apply flex items-center space-x-4 sm:space-x-8;
@@ -75,7 +75,7 @@ header {
 }
 
 main {
-  @apply mt-8;
+  @apply mt-6;
 
   & a {
     @apply py-4 text-blue-700;
@@ -152,10 +152,8 @@ footer {
 
 #dealers_index {
   & .search {
-    @apply mb-4;
-
     & form {
-      @apply sm:flex sm:space-x-4 items-center justify-center;
+      @apply sm:flex sm:space-x-4 items-center justify-center px-8;
     }
   }
 
@@ -163,14 +161,14 @@ footer {
     @apply flex items-center flex-wrap justify-center;
 
     & .dealer {
-      @apply relative m-4 p-4 rounded-lg bg-gray-200 shadow-lg w-64;
+      @apply relative m-4 p-2 rounded-lg bg-gray-200 shadow-lg w-48;
 
       & .name {
         @apply pt-6 text-center text-gray-900 font-bold text-xl;
       }
 
       & .credits-count {
-        @apply absolute bottom-0 inset-x-0 text-center mx-16 rounded-lg font-semibold p-1 text-sm bg-orange-200 text-orange-800 leading-none;
+        @apply absolute bottom-0 inset-x-0 text-center mx-12 rounded-lg font-semibold p-1 text-sm bg-orange-200 text-orange-800 leading-none;
       }
 
       & button[type="submit"] {
@@ -183,7 +181,7 @@ footer {
 #credits_index {
   @apply flex flex-col items-center space-y-4 mx-auto md:max-w-7xl;
 
-  & .header {
+  & .stats-container {
     @apply text-center py-2 px-6 bg-rose-200 rounded-xl;
 
     & .stats {
@@ -192,7 +190,7 @@ footer {
   }
 
   & form {
-    @apply mx-24 flex flex-col;
+    @apply flex flex-col sm:space-x-4 justify-center px-8;
 
     & .row {
       @apply flex space-x-8;
