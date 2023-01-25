@@ -13,7 +13,6 @@ module CreditsHelper
 
     link_to name, params, data: {
       turbo_action: "advance",
-      action: "turbo:click->sort-link#updateForm"
     }
   end
 

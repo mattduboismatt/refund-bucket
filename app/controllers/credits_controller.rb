@@ -3,7 +3,7 @@ class CreditsController < ApplicationController
   before_action :set_credit, only: %i[show destroy edit update toggle]
 
   def index
-    all_credits = current_user.credits.includes(:dealer).order(created_at: :desc)
+    all_credits = current_user.sort_credits(params)
     @credits = params[:with_redeemed] ? all_credits : all_credits.unredeemed
     @stats = Credit.stats_for(current_user)
   end

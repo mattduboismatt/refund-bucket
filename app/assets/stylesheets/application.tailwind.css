@@ -238,6 +238,22 @@ footer {
 
     & .credits-table-header {
       @apply bg-slate-100 font-bold text-lg;
+
+      & a, span {
+        @apply text-gray-700;
+      }
+
+      & .sort {
+        @apply ml-1 mb-1 inline-block w-0 h-0 border-[5px] border-transparent border-b-[7px] border-b-black border-t-0 bg-transparent;
+      }
+
+      & .sort-desc {
+        @apply border-t-[7px] border-t-gray-500 border-b-0;
+      }
+
+      & .sort-asc {
+        @apply border-b-[7px] border-b-gray-500 border-t-0;
+      }
     }
   }
 }
