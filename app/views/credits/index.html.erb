@@ -23,11 +23,11 @@
     </div>
     <div class="credits-table">
       <div class="credits-table-header">
-        <div>Dealer</div>
-        <div>Amount</div>
-        <div>Reference No.</div>
-        <div>Expires At</div>
-        <div>Notes</div>
+        <div><%= sort_link_to "Dealer", "dealer" %></div>
+        <div><%= sort_link_to "Amount", "amount" %></div>
+        <div><%= sort_link_to "Reference No.", "reference_number" %></div>
+        <div><%= sort_link_to "Expires At", "expires_at" %></div>
+        <div><%= sort_link_to "Notes", "notes"%></div>
         <div>🧼</div>
       </div>
       <% if @credits.any? %>
