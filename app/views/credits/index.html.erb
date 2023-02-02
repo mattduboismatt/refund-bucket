@@ -30,13 +30,13 @@
         <div><%= sort_link_to "Notes", "notes"%></div>
         <div>🧼</div>
       </div>
-      <% if @credits.any? %>
-        <div id="credits" class="credits">
+      <div id="credits" class="credits">
+        <% if @credits.any? %>
           <%= render @credits %>
-        </div>
-      <% else %>
-        <div id="no_credits" class="no-credits">No unredeemed credits yet.</div>
-      <% end %>
+        <% else %>
+          <div id="no_credits" class="no-credits">No unredeemed credits yet.</div>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
