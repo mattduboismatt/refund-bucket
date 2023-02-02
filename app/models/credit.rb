@@ -14,6 +14,7 @@ class Credit < ApplicationRecord
 
   scope :redeemed, -> { where(redeemed: true) }
   scope :unredeemed, -> { where(redeemed: false) }
+  scope :expires_in_days, ->(days_away) { where(expires_at: days_away.days.from_now) }
 
   def self.stats_for(user)
     user.credits.unredeemed.map(&:amount)
