@@ -7,12 +7,12 @@ class User < ApplicationRecord
     associations = {"dealer" => "dealers.name"}
     sort_column =
       params[:sort]
-        .presence_in(%w{ dealer amount_cents reference_number expires_at notes }) || "created_at"
+        .presence_in(%w[dealer amount_cents reference_number expires_at notes]) || "created_at"
 
     sort_column = associations[sort_column] || sort_column
 
     sort_direction =
-      params[:direction].presence_in(%w{ asc desc }) || "desc"
+      params[:direction].presence_in(%w[asc desc]) || "desc"
 
     credits
       .includes(:dealer)

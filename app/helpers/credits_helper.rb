@@ -8,17 +8,17 @@ module CreditsHelper
   def sort_link_to(name, column)
     name = raw("#{name} #{direction_indicator(column)}")
 
-    params = request.params.
-      merge(sort: column, direction: next_direction(column))
+    params = request.params
+      .merge(sort: column, direction: next_direction(column))
 
     link_to name, params, data: {
-      turbo_action: "advance",
+      turbo_action: "advance"
     }
   end
 
   def next_direction(column)
     if currently_sorted?(column)
-      params[:direction] == "asc" ? "desc" : "asc"
+      (params[:direction] == "asc") ? "desc" : "asc"
     else
       "asc"
     end
