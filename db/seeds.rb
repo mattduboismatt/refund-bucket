@@ -1,47 +1,52 @@
 Dealer.create!([
   {
     name: "American Airlines",
-    category: "airline",
-    slug: "american-airlines"
+    category: Dealer::Categories::AIRLINE,
+    slug: "american-airlines",
+    image: "american-airlines.png"
   },
   {
     name: "Southwest Airlines",
-    category: "airline",
-    slug: "southwest-airlines"
+    category: Dealer::Categories::AIRLINE,
+    slug: "southwest-airlines",
+    image: "southwest-airlines.png"
   },
   {
     name: "United Airlines",
-    category: "airline",
-    slug: "united-airlines"
+    category: Dealer::Categories::AIRLINE,
+    slug: "united-airlines",
+    image: "united-airlines.png"
   },
   {
-    name: "Marriot",
-    category: "hotel",
-    slug: "marriot"
+    name: "Marriott",
+    category: Dealer::Categories::HOTEL,
+    slug: "marriott",
+    image: "marriott.png"
   },
   {
     name: "Hilton",
-    category: "hotel",
+    category: Dealer::Categories::HOTEL,
     slug: "hilton"
   },
   {
     name: "Enterprise",
-    category: "car rental",
+    category: Dealer::Categories::CAR_RENTAL,
     slug: "enterprise"
   },
   {
     name: "Hertz",
-    category: "car rental",
+    category: Dealer::Categories::CAR_RENTAL,
     slug: "hertz"
   },
   {
     name: "Amazon",
-    category: "e-commerce",
-    slug: "amazon"
+    category: Dealer::Categories::E_COMMERCE,
+    slug: "amazon",
+    image: "amazon.png"
   },
   {
     name: "Lululemon",
-    category: "e-commerce",
+    category: Dealer::Categories::E_COMMERCE,
     slug: "lululemon"
   }
 ])

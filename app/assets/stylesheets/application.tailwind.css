@@ -167,12 +167,16 @@ footer {
         @apply pt-6 text-center text-gray-900 font-bold text-xl;
       }
 
+      & img {
+        @apply w-12 mx-auto;
+      }
+
       & .credits-count {
         @apply absolute bottom-0 inset-x-0 text-center mx-12 rounded-lg font-semibold p-1 text-sm bg-orange-200 text-orange-800 leading-none;
       }
 
       & button[type="submit"] {
-        @apply mt-6 uppercase;
+        @apply mt-4 uppercase;
       }
     }
   }

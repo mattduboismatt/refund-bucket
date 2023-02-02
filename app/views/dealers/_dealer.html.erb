@@ -2,6 +2,9 @@
   <div class="name">
     <%= dealer.name %>
   </div>
+    <div class="image">
+      <%= image_tag(dealer.image || "#{dealer.category}.png") %>
+    </div>
   <div>
     <%= button_to "Add", credits_path, method: :get, params: { dealer_id: dealer.id } %>
   </div>
