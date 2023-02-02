@@ -1,5 +1,9 @@
 require "active_support/core_ext/integer/time"
 
+Rails.application.default_url_options = {
+  host: "app.refundbucket.com"
+}
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -81,10 +85,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  config.action_mailer.default_url_options = {
-    host: "app.refundbucket.com"
-  }
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
