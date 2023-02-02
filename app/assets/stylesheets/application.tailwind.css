@@ -133,6 +133,11 @@ main {
     @apply outline-none ring-1 ring-gray-300 border-gray-300;
   }
 
+  & input.ohnohoney {
+    /* honeypot form field */
+    @apply absolute m-0 top-0 left-0 h-0 w-0 z-0 border-0 p-0 opacity-0;
+  }
+
   & .field-with-errors {
     & input,
     & textarea,
